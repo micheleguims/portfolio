@@ -1,5 +1,7 @@
 import './App.css'
 import React, { useState } from 'react';
+import mesa_gotas from './assets/mesa_gotas.png';
+import michele from './assets/michele.jpg';
 
 // Para ícones, vamos usar SVGs inline para manter tudo em um único arquivo.
 const MenuIcon = () => (
@@ -52,7 +54,7 @@ function App() {
 
         {/* --- Seção Principal (Hero) --- */}
         <header className="hero">
-          <div className="hero-bg" style={{ backgroundImage: "url('src/assets/mesa_gotas.png')" }}></div>
+          <div className="hero-bg" style={{ backgroundImage: `url(${mesa_gotas})` }}></div>
           <div className="hero-content">
             <h2 className="hero-title">
               Meu Jardim Digital
@@ -71,7 +73,7 @@ function App() {
           <div className="about-grid">
             <div>
               <img 
-                src="src/assets/michele.jpg" 
+                src={michele} 
                 alt="Retrato de Michele Guimarães Massari olhando por uma janela com uma praia ao fundo em um dia nublado. *Amo dias cinzas!*" 
                 className="about-image"
               />
