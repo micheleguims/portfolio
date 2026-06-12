@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
 #root {
       --bg-color: #f8f8f8;
       --text-color: #333333;
@@ -14,7 +19,7 @@
       font-family: var(--font-serif);
     }
 
-    /* --- Navegação --- */
+    /* --- Navegação --- 
     .navbar {
       background-color: rgba(248, 248, 248, 0.85);
       backdrop-filter: blur(8px);
@@ -37,7 +42,7 @@
       letter-spacing: 0.1em;
     }
     .nav-links {
-      display: none; /* Escondido por padrão */
+      display: none; /* Escondido por padrão 
     }
     .nav-links a, .mobile-menu a {
       font-family: var(--font-sans);
@@ -59,10 +64,10 @@
       background-color: var(--accent-hover-color);
     }
     .menu-button {
-      display: block; /* Visível em telas pequenas */
+      display: block; /* Visível em telas pequenas 
     }
 
-    /* --- Menu Mobile --- */
+    /* --- Menu Mobile --- 
     .mobile-menu {
         position: fixed;
         top: 0;
@@ -79,7 +84,7 @@
         font-size: 1.5rem;
     }
 
-    /* --- Seção Principal (Hero) --- */
+    /* --- Seção Principal (Hero) --- 
     .hero {
       position: relative;
       height: 100vh;
@@ -135,7 +140,7 @@
       transform: scale(1.05);
     }
 
-    /* --- Seção Sobre --- */
+    /* --- Seção Sobre --- 
     .about-section {
       padding: 6rem 1.5rem;
       background-color: #ffffff;
@@ -174,7 +179,7 @@
       color: #555555;
     }
 
-    /* --- Footer --- */
+    /* --- Footer --- 
     .footer {
       text-align: center;
       padding: 2rem 1.5rem;
@@ -193,7 +198,7 @@
     }
   
 
-    /* --- Media Queries para Responsividade --- */
+    /* --- Media Queries para Responsividade --- 
     @media (min-width: 768px) {
       .nav-links {
         display: flex;
@@ -213,3 +218,5 @@
         grid-template-columns: repeat(2, 1fr);
       }
     }
+    
+*/
