@@ -1,130 +1,15 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import ProjectModal from './components/ProjectModal';
+import { PROJECTS_DATA } from './data'; './data/projectsData';
+import { MenuIcon, CloseIcon, LinkedInIcon, GitHubIcon, MailIcon } from './components/Icons';
 
 // ==========================================
 // CONFIGURAÇÕES DE ASSETS E LINKS
 // ==========================================
 // No seu projeto oficial, você pode descomentar os imports locais abaixo se preferir:
 import mesa_gotas from './assets/mesa_gotas.png';
-// import michele from './assets/michele.jpg';
-
-// Imagem de background para a seção Hero (Mesa de Gotas)
-const MESA_GOTAS_URL = mesa_gotas;
-
-// Imagens abstratas e conceituais de portfólio (substitua por prints reais no futuro)
-const PROJECT_1_URL = 'https://images.unsplash.com/photo-1502691876148-a84978e59fa8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
-const PROJECT_2_URL = 'https://images.unsplash.com/photo-1453749024858-4bda89bd9ed7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
-const PROJECT_3_URL = 'https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
-
-// Dados estruturados dos seus projetos (modelo padronizado para o Modal)
-const PROJECTS_DATA = [
-  {
-    id: 1,
-    title: 'Galeria Interativa',
-    subtitle: 'Uma imersão visual no design fluido e minimalista.',
-    category: 'Experimento Frontend',
-    image: PROJECT_1_URL,
-    technologies: ['React', 'Tailwind CSS', 'Vite', 'Framer Motion'],
-    summary: 'Aplicação responsiva construída para exercitar a lógica de layouts fluidos, animações de entrada elegantes e o gerenciamento inteligente de estados no ecossistema React.',
-    challenge: 'O principal desafio foi criar transições que parecessem naturais tanto em telas de celulares menores quanto em monitores ultrawide, mantendo a performance de renderização alta.',
-    solution: 'Utilização de componentes baseados no Tailwind CSS com larguras fluidas relativas e cálculos dinâmicos de renderização por meio de React hooks tradicionais.',
-    codeSnippet: `// Exemplo de código do componente de transição fluida
-const GalleryGrid = ({ items }) => {
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {items.map((item) => (
-        <Card key={item.id} className="transition-all duration-300 hover:scale-[1.02]">
-          <Image src={item.url} alt={item.title} />
-        </Card>
-      ))}
-    </div>
-  );
-};`,
-    liveLink: '#',
-    githubLink: 'https://github.com/micheleguims'
-  },
-  {
-    id: 2,
-    title: 'Visualizador de Dados',
-    subtitle: 'Unindo análise de comportamento e tabelas estatísticas.',
-    category: 'Estudo Comportamental',
-    image: PROJECT_2_URL,
-    technologies: ['JavaScript', 'HTML5', 'CSS Custom', 'Chart.js'],
-    summary: 'Protótipo de dashboard projetado para receber e formatar tabelas analíticas brutas sobre o comportamento de usuários, gerando gráficos de linha limpos e de fácil interpretação.',
-    challenge: 'A manipulação de arrays complexos com muitos dados biológicos ou estatísticos pode desacelerar a renderização da tela principal se não for feita de forma assíncrona.',
-    solution: 'Filtros em memória que dividem o processamento dos dados estruturados antes de alimentar os gráficos vetoriais do Canvas.',
-    codeSnippet: `// Estruturação e ordenação assíncrona dos dados
-const processChartData = async (rawData) => {
-  const filtered = rawData.filter(d => d.value > 0);
-  return filtered.map(item => ({
-    label: item.timestamp,
-    value: item.score
-  }));
-};`,
-    liveLink: '#',
-    githubLink: 'https://github.com/micheleguims'
-  },
-  {
-    id: 3,
-    title: 'Diário Digital',
-    subtitle: 'O elo de ligação entre a biologia e a tecnologia.',
-    category: 'Jardim de Estudo',
-    image: PROJECT_3_URL,
-    technologies: ['HTML', 'JavaScript', 'CSS Grid', 'Markdown'],
-    summary: 'Um sistema de anotações e fichamentos pessoais focado em estudos de neurociência e codificação, facilitando as revisões periódicas através de um layout estritamente minimalista.',
-    challenge: 'Criar um editor de notas de leitura que fosse totalmente amigável à escrita rápida e suportasse estilizações de texto simples sem depender de bibliotecas externas pesadas.',
-    solution: 'Uso de expressões regulares básicas para conversão direta de Markdown nativo em tags HTML limpas dentro de áreas de conteúdo editável.',
-    codeSnippet: `// Conversor básico de Markdown para visualização rápida
-function simpleMarkdown(text) {
-  return text
-    .replace(/\\*\\*(.*?)\\*\\*/g, '<strong>$1</strong>')
-    .replace(/\\*(.*?)\\*/g, '<em>$1</em>')
-    .replace(/#(.*)/g, '<h2>$1</h2>');
-}`,
-    liveLink: '#',
-    githubLink: 'https://github.com/micheleguims'
-  }
-];
-
-// ==========================================
-// COMPONENTES DE ÍCONES (SVG INLINE)
-// ==========================================
-const MenuIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
-    <line x1="4" x2="20" y1="12" y2="12" />
-    <line x1="4" x2="20" y1="6" y2="6" />
-    <line x1="4" x2="20" y1="18" y2="18" />
-  </svg>
-);
-
-const CloseIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
-    <line x1="18" y1="6" x2="6" y2="18" />
-    <line x1="6" y1="6" x2="18" y2="18" />
-  </svg>
-);
-
-const LinkedInIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-    <rect x="2" y="9" width="4" height="12" />
-    <circle cx="4" cy="4" r="2" />
-  </svg>
-);
-
-const GitHubIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
-    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-  </svg>
-);
-
-const MailIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
-    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-    <polyline points="22,6 12,13 2,6" />
-  </svg>
-);
+import michele from './assets/michele.jpg';
 
 // ==========================================
 // COMPONENTE PRINCIPAL (APP)
@@ -207,7 +92,7 @@ function App() {
             <header className="relative h-[60vh] flex items-center justify-center text-center px-4 overflow-hidden">
               <div 
                 className="absolute inset-0 bg-cover bg-center brightness-95" 
-                style={{ backgroundImage: `url(${MESA_GOTAS_URL})` }}
+                style={{ backgroundImage: `url(${mesa_gotas})` }}
               ></div>
               <div className="absolute inset-0 bg-gradient-to-b from-[#f8f8f8]/30 via-transparent to-[#f8f8f8]/70"></div>
               
@@ -483,7 +368,7 @@ function App() {
               <GitHubIcon /> GitHub
             </a>
           </span>
-          <span className="inline-block font-light mt-2">Feito com ♥ no Jardim Digital</span>
+          <span className="inline-block font-light mt-2">Feito com ♥</span>
         </p>
       </footer>
     </div>
