@@ -380,7 +380,7 @@ function App() {
                       </div>
                       <div>
                         <h5 className="font-semibold text-xs tracking-wider uppercase text-gray-450">LinkedIn</h5>
-                        <a href="https://linkedin.com/in/michele-guimaraes-massari" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-[#c49a6c] transition-colors">linkedin.com/in/michele-guimaraes-massari</a>
+                        <a href="https://linkedin.com/in/michelegmassari" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-[#c49a6c] transition-colors">linkedin.com/in/michelegmassari</a>
                       </div>
                     </div>
                   </div>
@@ -475,7 +475,7 @@ function App() {
 
           {/* Links e Redes Sociais */}
           <span className="flex justify-center gap-4 mt-4 mb-2">
-            <a href="https://linkedin.com/in/michele-guimaraes-massari" target="_blank" rel="noopener noreferrer" className="hover:text-[#c49a6c] transition-colors inline-flex items-center gap-1">
+            <a href="https://linkedin.com/in/michelegmassari" target="_blank" rel="noopener noreferrer" className="hover:text-[#c49a6c] transition-colors inline-flex items-center gap-1">
               <LinkedInIcon /> LinkedIn
             </a>
             <span className="text-gray-300">|</span>
